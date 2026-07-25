@@ -1,0 +1,352 @@
+/* ============================================
+   Hardware Console Themes
+   Styles the chassis, screen, and text.
+   ============================================ */
+
+/* Theme transition base */
+.hardware-console,
+.console-screen-bezel,
+.console-screen-glass,
+.widget-3d-text,
+.btn-hardware {
+  transition: all 0.5s ease, background 0.5s ease;
+}
+
+/* ============================================
+   1. Glassmorphic — frosted glass effect
+   ============================================ */
+.hardware-console.theme-glassmorphic {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 50px rgba(31, 38, 135, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.hardware-console.theme-glassmorphic .widget-3d-text {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   2. Neon Cyberpunk — synthwave pink/cyan aesthetic
+   ============================================ */
+.hardware-console.theme-neon-cyberpunk {
+  background: #0f0518;
+  border: 2px solid #00f3ff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 243, 255, 0.15), 0 0 25px rgba(0, 243, 255, 0.2);
+}
+.hardware-console.theme-neon-cyberpunk .console-screen-bezel {
+  border-color: #ff00ea;
+  background: #050011;
+}
+.hardware-console.theme-neon-cyberpunk .widget-3d-text {
+  color: #00f3ff;
+  text-shadow: 2px 2px 0px #ff00ea, 0 0 8px rgba(0, 243, 255, 0.6), 0 0 30px rgba(255, 0, 234, 0.3);
+}
+.hardware-console.theme-neon-cyberpunk .console-screen-glass::after {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, rgba(255, 0, 234, 0.05) 0px, transparent 1px, transparent 2px);
+  pointer-events: none;
+}
+.hardware-console.theme-neon-cyberpunk .hardware-input,
+.hardware-console.theme-neon-cyberpunk .hardware-select {
+  background: #110522; color: #ff00ea; border: 1px solid #ff00ea;
+}
+.hardware-console.theme-neon-cyberpunk .effect-card,
+.hardware-console.theme-neon-cyberpunk .theme-card,
+.hardware-console.theme-neon-cyberpunk .btn-hardware {
+  background: #110522; border: 1px solid #00f3ff; color: #00f3ff;
+}
+.hardware-console.theme-neon-cyberpunk .effect-card.active,
+.hardware-console.theme-neon-cyberpunk .theme-card.active,
+.hardware-console.theme-neon-cyberpunk .btn-play {
+  background: rgba(255, 0, 234, 0.2); border-color: #ff00ea; box-shadow: inset 0 0 10px rgba(255,0,234,0.4); color: #fff;
+}
+.hardware-console.theme-neon-cyberpunk .btn-export { background: #ff00ea; color: #fff; border-color: #ff00ea; }
+
+/* ============================================
+   3. Minimal Clean — Swiss/Apple aesthetic
+   ============================================ */
+.hardware-console.theme-minimal-clean {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+.hardware-console.theme-minimal-clean .console-branding,
+.hardware-console.theme-minimal-clean .hardware-label,
+.hardware-console.theme-minimal-clean .tagline,
+.hardware-console.theme-minimal-clean .effect-name,
+.hardware-console.theme-minimal-clean .theme-name {
+  color: #1e293b;
+  text-shadow: none;
+  border-color: #e2e8f0;
+}
+.hardware-console.theme-minimal-clean .logo-mark { color: #000; text-shadow: none; }
+.hardware-console.theme-minimal-clean .console-control-deck {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+.hardware-console.theme-minimal-clean .console-screen-bezel {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+.hardware-console.theme-minimal-clean .widget-3d-text {
+  color: #1e293b;
+  font-weight: 500;
+}
+.hardware-console.theme-minimal-clean .hardware-input,
+.hardware-console.theme-minimal-clean .hardware-select {
+  background: #fff; color: #000; border: 1px solid #cbd5e1; box-shadow: none;
+}
+.hardware-console.theme-minimal-clean .effect-card,
+.hardware-console.theme-minimal-clean .theme-card,
+.hardware-console.theme-minimal-clean .btn-hardware {
+  background: #fff; border: 1px solid #cbd5e1; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.hardware-console.theme-minimal-clean .effect-card.active,
+.hardware-console.theme-minimal-clean .theme-card.active,
+.hardware-console.theme-minimal-clean .btn-play {
+  background: #0f172a; border-color: #0f172a; color: #fff; box-shadow: none;
+}
+.hardware-console.theme-minimal-clean .effect-card.active .effect-name,
+.hardware-console.theme-minimal-clean .theme-card.active .theme-name { color: #fff; }
+
+/* ============================================
+   4. Brutalist — raw, bold, unapologetic
+   ============================================ */
+.hardware-console.theme-brutalist {
+  background: #000;
+  border: 4px solid #fff;
+  border-radius: 0;
+  box-shadow: 12px 12px 0 #fff;
+}
+.hardware-console.theme-brutalist * {
+  border-radius: 0 !important;
+}
+.hardware-console.theme-brutalist .console-screen-bezel {
+  border: 4px solid #fff;
+  background: #111;
+}
+.hardware-console.theme-brutalist .widget-3d-text {
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.hardware-console.theme-brutalist .hardware-input,
+.hardware-console.theme-brutalist .hardware-select {
+  background: #fff; color: #000; border: 2px solid #000; font-weight: bold;
+}
+.hardware-console.theme-brutalist .effect-card,
+.hardware-console.theme-brutalist .theme-card,
+.hardware-console.theme-brutalist .btn-hardware {
+  background: #000; border: 2px solid #fff; color: #fff; box-shadow: 4px 4px 0 #fff;
+}
+.hardware-console.theme-brutalist .effect-card.active,
+.hardware-console.theme-brutalist .theme-card.active,
+.hardware-console.theme-brutalist .btn-play {
+  background: #fff; border: 2px solid #fff; color: #000; box-shadow: 4px 4px 0 #888;
+}
+.hardware-console.theme-brutalist .effect-card.active .effect-name,
+.hardware-console.theme-brutalist .theme-card.active .theme-name { color: #000; }
+
+/* ============================================
+   5. Retro Terminal — green phosphor CRT
+   ============================================ */
+.hardware-console.theme-retro-terminal {
+  background: #0a0a0a;
+  border: 2px solid #1a3a1a;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 20px rgba(0, 255, 0, 0.05);
+}
+.hardware-console.theme-retro-terminal .console-screen-bezel {
+  border: 2px solid #00cc00;
+  background: #001100;
+}
+.hardware-console.theme-retro-terminal .widget-3d-text {
+  color: #00ff00;
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+  text-shadow: 0 0 6px rgba(0, 255, 0, 0.6);
+  animation: terminal-flicker 0.15s infinite;
+}
+.hardware-console.theme-retro-terminal .hardware-input,
+.hardware-console.theme-retro-terminal .hardware-select {
+  background: #000; color: #00ff00; border: 1px solid #00ff00;
+}
+.hardware-console.theme-retro-terminal .effect-card,
+.hardware-console.theme-retro-terminal .theme-card,
+.hardware-console.theme-retro-terminal .btn-hardware {
+  background: #050505; border: 1px solid #1a3a1a; color: #00ff00;
+}
+.hardware-console.theme-retro-terminal .effect-name,
+.hardware-console.theme-retro-terminal .theme-name { color: #00aa00; }
+.hardware-console.theme-retro-terminal .effect-card.active,
+.hardware-console.theme-retro-terminal .theme-card.active,
+.hardware-console.theme-retro-terminal .btn-play {
+  background: rgba(0, 255, 0, 0.1); border-color: #00ff00; box-shadow: inset 0 0 8px rgba(0,255,0,0.4);
+}
+@keyframes terminal-flicker {
+  0% { opacity: 0.97; }
+  50% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+/* ============================================
+   6. Luxury Gold — premium metallic
+   ============================================ */
+.hardware-console.theme-luxury-gold {
+  background: linear-gradient(180deg, #0c0c0c 0%, #1a1a1a 100%);
+  border: 1px solid rgba(212, 168, 85, 0.4);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.9), inset 0 1px 0 rgba(212, 168, 85, 0.1);
+}
+.hardware-console.theme-luxury-gold .console-screen-bezel {
+  border: 2px solid #d4a855;
+}
+.hardware-console.theme-luxury-gold .widget-3d-text {
+  color: #f5e6b8;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(212, 168, 85, 0.6), 0 2px 4px rgba(0,0,0,0.8);
+}
+.hardware-console.theme-luxury-gold .hardware-input,
+.hardware-console.theme-luxury-gold .hardware-select {
+  background: #111; color: #d4a855; border: 1px solid #d4a855;
+}
+.hardware-console.theme-luxury-gold .effect-card,
+.hardware-console.theme-luxury-gold .theme-card,
+.hardware-console.theme-luxury-gold .btn-hardware {
+  background: linear-gradient(180deg, #2a2a2a, #111); border: 1px solid #d4a855;
+}
+.hardware-console.theme-luxury-gold .effect-name,
+.hardware-console.theme-luxury-gold .theme-name { color: #b8942d; }
+.hardware-console.theme-luxury-gold .effect-card.active,
+.hardware-console.theme-luxury-gold .theme-card.active,
+.hardware-console.theme-luxury-gold .btn-play {
+  background: linear-gradient(180deg, #d4a855, #b8942d); border-color: #f5e6b8;
+}
+.hardware-console.theme-luxury-gold .effect-card.active .effect-name,
+.hardware-console.theme-luxury-gold .theme-card.active .theme-name { color: #000; text-shadow: none; }
+
+/* ============================================
+   7. Soft Pastel — dreamy, gentle
+   ============================================ */
+.hardware-console.theme-soft-pastel {
+  background: linear-gradient(135deg, #fce4ec, #e8eaf6, #e1f5fe);
+  border: 1px solid #fff;
+}
+.hardware-console.theme-soft-pastel .console-screen-bezel {
+  background: #f3e5f5;
+  border-color: #ce93d8;
+}
+.hardware-console.theme-soft-pastel .widget-3d-text {
+  color: #5c6bc0;
+  font-weight: 500;
+}
+.hardware-console.theme-soft-pastel .console-branding,
+.hardware-console.theme-soft-pastel .hardware-label {
+  color: #5c6bc0;
+  text-shadow: none;
+}
+.hardware-console.theme-soft-pastel .logo-mark { color: #ab47bc; text-shadow: none; }
+.hardware-console.theme-soft-pastel .hardware-input,
+.hardware-console.theme-soft-pastel .hardware-select {
+  background: #fff; color: #5c6bc0; border: 1px solid #ce93d8; box-shadow: none;
+}
+.hardware-console.theme-soft-pastel .effect-card,
+.hardware-console.theme-soft-pastel .theme-card,
+.hardware-console.theme-soft-pastel .btn-hardware {
+  background: #fff; border: 1px solid #ce93d8; box-shadow: 0 2px 4px rgba(206,147,216,0.3);
+}
+.hardware-console.theme-soft-pastel .effect-name,
+.hardware-console.theme-soft-pastel .theme-name { color: #ab47bc; }
+.hardware-console.theme-soft-pastel .effect-card.active,
+.hardware-console.theme-soft-pastel .theme-card.active,
+.hardware-console.theme-soft-pastel .btn-play {
+  background: #b39ddb; border-color: #b39ddb; color: #fff;
+}
+.hardware-console.theme-soft-pastel .effect-card.active .effect-name,
+.hardware-console.theme-soft-pastel .theme-card.active .theme-name { color: #fff; }
+
+/* ============================================
+   8. Dark Monochrome — elegant minimalism
+   ============================================ */
+.hardware-console.theme-dark-monochrome {
+  background: #161616;
+  border: 1px solid #2a2a2a;
+}
+.hardware-console.theme-dark-monochrome .console-screen-bezel {
+  background: #0a0a0a;
+  border: 2px solid #333;
+}
+.hardware-console.theme-dark-monochrome .widget-3d-text {
+  color: #d4d4d4;
+  letter-spacing: 1px;
+}
+.hardware-console.theme-dark-monochrome .hardware-input,
+.hardware-console.theme-dark-monochrome .hardware-select {
+  background: #222; color: #fff; border: 1px solid #444;
+}
+.hardware-console.theme-dark-monochrome .effect-card,
+.hardware-console.theme-dark-monochrome .theme-card,
+.hardware-console.theme-dark-monochrome .btn-hardware {
+  background: #1a1a1a; border: 1px solid #333; color: #aaa;
+}
+.hardware-console.theme-dark-monochrome .effect-name,
+.hardware-console.theme-dark-monochrome .theme-name { color: #888; }
+.hardware-console.theme-dark-monochrome .effect-card.active,
+.hardware-console.theme-dark-monochrome .theme-card.active,
+.hardware-console.theme-dark-monochrome .btn-play {
+  background: #eee; border-color: #eee; color: #000;
+}
+.hardware-console.theme-dark-monochrome .effect-card.active .effect-name,
+.hardware-console.theme-dark-monochrome .theme-card.active .theme-name { color: #000; text-shadow: none; }
+
+/* ============================================
+   9. Brand Marquee Theme Overrides
+   ============================================ */
+.hardware-console.theme-glassmorphic {
+  --theme-marquee-bg: rgba(255, 255, 255, 0.05);
+  --theme-marquee-border: rgba(255, 255, 255, 0.15);
+  --theme-marquee-text: #fff;
+  --theme-marquee-glow: rgba(255, 255, 255, 0.2);
+}
+.hardware-console.theme-neon-cyberpunk {
+  --theme-marquee-bg: #050011;
+  --theme-marquee-border: #ff00ea;
+  --theme-marquee-text: #00f3ff;
+  --theme-marquee-glow: rgba(0, 243, 255, 0.6);
+}
+.hardware-console.theme-minimal-clean {
+  --theme-marquee-bg: #f8fafc;
+  --theme-marquee-border: #cbd5e1;
+  --theme-marquee-text: #1e293b;
+  --theme-marquee-glow: transparent;
+}
+.hardware-console.theme-brutalist {
+  --theme-marquee-bg: #fff;
+  --theme-marquee-border: #fff;
+  --theme-marquee-text: #000;
+  --theme-marquee-glow: transparent;
+}
+.hardware-console.theme-retro-terminal {
+  --theme-marquee-bg: #001100;
+  --theme-marquee-border: #00cc00;
+  --theme-marquee-text: #00ff00;
+  --theme-marquee-glow: rgba(0, 255, 0, 0.4);
+}
+.hardware-console.theme-luxury-gold {
+  --theme-marquee-bg: #111;
+  --theme-marquee-border: #d4a855;
+  --theme-marquee-text: #f5e6b8;
+  --theme-marquee-glow: rgba(212, 168, 85, 0.4);
+}
+.hardware-console.theme-soft-pastel {
+  --theme-marquee-bg: #fff;
+  --theme-marquee-border: #ce93d8;
+  --theme-marquee-text: #ab47bc;
+  --theme-marquee-glow: transparent;
+}
+.hardware-console.theme-dark-monochrome {
+  --theme-marquee-bg: #0a0a0a;
+  --theme-marquee-border: #333;
+  --theme-marquee-text: #888;
+  --theme-marquee-glow: transparent;
+}

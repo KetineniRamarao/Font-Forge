@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FontForge Widget</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link id="widget-font-link" href="" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/widget-3d.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/themes.css">
+  
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      transition: background-color 0.3s ease;
+    }
+    
+    #widget-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="widget-container">
+    <div id="preview-widget" class="hardware-console theme-glassmorphic">
+      
+      <!-- Top Branding Plate -->
+      <div class="console-branding">
+        <span class="logo-mark">FF//64</span>
+        <span class="tagline">Interactive Motion Text Engine</span>
+        <div class="status-leds">
+          <span class="led pwr"></span>
+          <span class="led rdy"></span>
+        </div>
+      </div>
+
+      <!-- The Main Screen -->
+      <div class="console-screen-bezel">
+        <div class="console-screen-glass">
+          <div class="widget-3d-scroll" id="scroll-container">
+            <div id="widget-text" class="widget-3d-text effect-aurora-flow"></div>
+          </div>
+          <div id="scroll-prompt" class="scroll-prompt"><span>TEXT TOO LONG</span>PRESS SCROLL</div>
+        </div>
+        <!-- Scanlines -->
+        <div class="scanlines"></div>
+      </div>
+
+      <!-- Bottom Edge Detail -->
+      <div class="console-bottom-edge">
+        <div class="brand-marquee">
+          <div class="marquee-track">
+            <span>FONTFORGE STUDIO OS // v1.0.0 // INTERACTIVE MOTION TEXT ENGINE // SYSTEM NOMINAL // </span>
+            <span>FONTFORGE STUDIO OS // v1.0.0 // INTERACTIVE MOTION TEXT ENGINE // SYSTEM NOMINAL // </span>
+          </div>
+        </div>
+        <div class="vent-slots">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module">
+    import EffectsEngine from './js/effects-engine.js';
+    import AutoTicker from './js/auto-ticker.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const configParam = urlParams.get('config');
+      
+      if (configParam) {
+        try {
+          // If the base64 string was not url-encoded, the browser's URLSearchParams 
+          // might have converted '+' to ' '. This restores it so atob() doesn't crash.
+          const safeConfig = configParam.replace(/ /g, '+');
+          const config = JSON.parse(atob(safeConfig));
+          
+          const widget = document.getElementById('preview-widget');
+          const textEl = document.getElementById('widget-text');
+          const screenBezel = widget.querySelector('.console-screen-bezel');
+          
+          // Apply Screen Background
+          if (config.bgColor && screenBezel) {
+            screenBezel.style.backgroundColor = config.bgColor;
+          }
+          
+          // Apply Message
+          textEl.textContent = config.message || 'Hello World';
+          
+          // Apply Theme (keep hardware-console chassis)
+          widget.className = `hardware-console ${config.theme || 'theme-glassmorphic'}`;
+          
+          // Apply Text Color
+          if (config.textColor) {
+            textEl.style.color = config.textColor;
+          }
+          
+          // Apply Effect
+          if (config.effect) {
+            EffectsEngine.applyEffect(config.effect, textEl);
+          }
+          
+          // Apply Font
+          if (config.font) {
+            const fontLink = document.getElementById('widget-font-link');
+            fontLink.href = `https://fonts.googleapis.com/css2?family=${config.font.replace(/ /g, '+')}:wght@400;700;800;900&display=swap`;
+            textEl.style.fontFamily = `"${config.font}", sans-serif`;
+          }
+          
+          // Initialize Auto Ticker
+          const ticker = new AutoTicker(widget);
+          // Auto start ticker for embeds
+          setTimeout(() => {
+             ticker.toggleScroll();
+          }, 1000);
+          
+        } catch (e) {
+          console.error('Invalid config:', e);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

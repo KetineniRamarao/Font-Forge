@@ -1,0 +1,54 @@
+:root {
+  /* Colors - Backgrounds */
+  --color-bg-primary: #0a0e27;
+  --color-bg-secondary: #131640;
+  --color-bg-surface: rgba(255, 255, 255, 0.05);
+
+  /* Colors - Accents */
+  --color-accent-violet: #7c3aed;
+  --color-accent-cyan: #06b6d4;
+  --color-accent-pink: #ec4899;
+
+  /* Colors - Text */
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+
+  /* Colors - Border & Glow */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-glow-violet: rgba(124, 58, 237, 0.4);
+  --color-glow-cyan: rgba(6, 182, 212, 0.4);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 15px var(--color-glow-violet);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Typography */
+  --font-ui: 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Widget 3D */
+  --widget-depth: 40px;
+  --key-rotation: 0deg;
+}

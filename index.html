@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FontForge Console</title>
+  <meta name="description" content="A tactile, skeuomorphic console for 3D text effects.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/widget-3d.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="desk-surface">
+
+  <!-- THE CONSOLE (This entire element gets exported) -->
+  <div id="preview-widget" class="hardware-console theme-glassmorphic">
+    
+    <!-- Top Branding Plate -->
+    <div class="console-branding">
+      <span class="logo-mark">FF//64</span>
+      <span class="tagline">Interactive Motion Text Engine</span>
+      <div class="status-leds">
+        <span class="led pwr"></span>
+        <span class="led rdy"></span>
+      </div>
+    </div>
+
+    <!-- The Main Screen -->
+    <div class="console-screen-bezel">
+      <div class="console-screen-glass">
+        <div class="widget-3d-scroll" id="scroll-container">
+          <div id="widget-text" class="widget-3d-text effect-aurora-flow">Welcome to the next level.</div>
+        </div>
+        <div id="scroll-prompt" class="scroll-prompt"><span>TEXT TOO LONG</span>PRESS SCROLL</div>
+      </div>
+      <!-- Scanlines -->
+      <div class="scanlines"></div>
+    </div>
+
+    <!-- The Control Deck (Buttons & Dials) -->
+    <div class="console-control-deck">
+      
+      <!-- Left Column: Input, Fonts, Themes -->
+      <div class="deck-column col-left">
+        <div class="hardware-group">
+          <label class="hardware-label">System Message</label>
+          <input type="text" id="message-input" class="hardware-input" value="Welcome to the next level." />
+        </div>
+        
+        <div class="hardware-group">
+          <label class="hardware-label">Colors (Text & Screen)</label>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <input type="color" id="text-color-input" class="hardware-input" value="#ffffff" title="Text Color" style="flex: 1; padding: 2px; height: 32px; cursor: pointer;">
+            <input type="color" id="bg-color-input" class="hardware-input" value="#0a0e27" title="Screen Background" style="flex: 1; padding: 2px; height: 32px; cursor: pointer;">
+          </div>
+        </div>
+        
+        <div class="hardware-group">
+          <label class="hardware-label">Typeface Category</label>
+          <div id="font-category-filter" class="hardware-button-grid mini-grid">
+            <button class="effect-card active" data-category="all"><div class="effect-name">All</div></button>
+            <button class="effect-card" data-category="serif"><div class="effect-name">Serif</div></button>
+            <button class="effect-card" data-category="sans-serif"><div class="effect-name">Sans</div></button>
+            <button class="effect-card" data-category="display"><div class="effect-name">Disp</div></button>
+          </div>
+          <div class="select-wrapper mt-2">
+            <select id="font-select" class="hardware-select"></select>
+          </div>
+        </div>
+
+        <div class="hardware-group mt-auto">
+          <label class="hardware-label">Chassis Skin (Theme)</label>
+          <div id="theme-picker" class="hardware-button-grid mini-grid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Column: The Main FX Switches -->
+      <div class="deck-column col-center">
+        <label class="hardware-label">Motion FX Array</label>
+        <div id="effects-grid" class="hardware-button-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Right Column: Scroll Dial & Export -->
+      <div class="deck-column col-right">
+        
+        <div class="hardware-group">
+          <label class="hardware-label">Auto Ticker</label>
+          <button id="btn-auto-scroll" class="btn-hardware btn-play" disabled>
+            <span class="btn-icon">▶</span>
+            <span class="btn-text">SCROLL</span>
+          </button>
+          <div class="speed-controls" style="display: flex; gap: 8px; margin-top: 4px;">
+            <button id="btn-speed-down" class="btn-hardware" style="flex: 1; padding: 4px; margin-bottom: 0;" title="Slower">S -</button>
+            <button id="btn-speed-up" class="btn-hardware" style="flex: 1; padding: 4px; margin-bottom: 0;" title="Faster">S +</button>
+          </div>
+        </div>
+
+        <div class="hardware-group" style="margin-top: 16px;">
+          <button id="btn-reset" class="btn-hardware btn-export" style="background: #ef4444; border-top-color: #f87171;">
+            <span class="btn-icon">⟲</span>
+            <span class="btn-text">RESET FX</span>
+          </button>
+        </div>
+
+        <div class="hardware-group mt-auto">
+          <label class="hardware-label">I/O Export</label>
+          <button id="btn-embed-code" class="btn-hardware btn-export">
+            <span class="btn-icon">&#60;/&#62;</span>
+            <span class="btn-text">EJECT / EMBED</span>
+          </button>
+          <button id="btn-download-html" class="btn-hardware btn-download">
+            <span class="btn-icon">⬇</span>
+            <span class="btn-text">SAVE HTML</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Edge Detail -->
+    <div class="console-bottom-edge">
+      <div class="brand-marquee">
+        <div class="marquee-track">
+          <span>FONTFORGE STUDIO OS // v1.0.0 // INTERACTIVE MOTION TEXT ENGINE // SYSTEM NOMINAL // </span>
+          <span>FONTFORGE STUDIO OS // v1.0.0 // INTERACTIVE MOTION TEXT ENGINE // SYSTEM NOMINAL // </span>
+        </div>
+      </div>
+      <div class="vent-slots">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- Hidden elements needed by JS but not shown in new design -->
+  <div style="display:none;">
+    <select id="widget-size"><option value="banner" selected></option></select>
+    <input type="range" id="depth-slider" value="0" />
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
